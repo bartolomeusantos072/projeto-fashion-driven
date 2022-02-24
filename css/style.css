@@ -61,7 +61,9 @@ header {
     align-items: center;
     background-color: #fff;
 }
-
+.blusas{
+    cursor:pointer;
+}
 .blusas img {
     width: 180px;
     height: 180px;
@@ -85,7 +87,7 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    
 }
 
 
@@ -163,3 +165,4 @@ button {
     text-align: center;
 
 }
+

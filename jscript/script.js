@@ -1,17 +1,16 @@
 let blusa={};
-// validarNome();
+validarNome();
+function validarNome(){
 
-// function validarNome(){
-//     let nome= prompt("Qual o seu nome?");
-
-//     let valida_nome = nome.match(/[^a-zà-ú]/gi);
-   
-//     if( valida_nome || !nome ){
-//        alerte("Você digitou um nome inválido ou deixou o campo vazio!");
-//     }else{
-//        alert("Nome Ok!")
-//     }
-// }
+    let nome;
+        do{
+            nome=prompt("Qual o seu nome?");
+        }while((nome=="") ||( (/^[a-z][a-z\s]*$/i).test(nome) ==false) );   
+        blusa.owner= nome;
+        blusa.author= nome;
+       
+}
+        
 
 
 function get(){
@@ -22,17 +21,28 @@ function get(){
           
           
 }
-
 get();
 
-function post(){
+
+
+function validarOjeto(){
+
+    if (/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(document.querySelector('#post-encomenda').value) == false) {
+        alert("Endereço de imagem invalido");
+        document.querySelector('#post-encomenda').focus();
+        return;
+    }else{
+       return blusa.image = document.querySelector('#post-encomenda').value;
+    }
+
+}
+function confirmarPedido(){
     
     blusa.model= "t-shirt";
     blusa.neck="v-neck";
     blusa.material="silk";
-    blusa.owner="Bartolomeu";
-    blusa.author="tiago";    
-    blusa.image= document.querySelector('#post-encomenda').value;
+      
+    validarOjeto();
 
     axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts",blusa).then(
         function (res){ alert("Encomenda Confirmada");}
@@ -45,11 +55,8 @@ function post(){
      }, 1000);
 }
 
-
-let teste=[];
 function showResponse(res){
     
-   
 
     let montarBlusas = `
         
@@ -58,7 +65,7 @@ function showResponse(res){
         for (let i = 0; i < res.data.length; i++) {
             montarBlusas +=`
             <div class="criacao">
-            <div class="blusas">
+            <div class="blusas" onclick="encomendarBlusa(this)">
             <img src="${res.data[i].image}"/>   
              </div>
             <span class="autor"><h3>
@@ -71,17 +78,17 @@ function showResponse(res){
         }
         montarBlusas += `</div>`;
     // montarBlusas+=`${JSON.stringify(res.data,null,'\t')}`;
-         document.querySelector('.text').innerHTML +=
+         
+    document.querySelector('.text').innerHTML +=
         montarBlusas;
             
-            // style="background:url('${res.data[i].image}');background-size: contain;"
-            //
-            setTimeout(function(){
-                window.location.reload(1);
-             }, 15000); 
         
 }
 
-function selecionarBlusa(){
-    alert("Essa blusa");
+
+
+let teste={};
+function encomendarBlusa(objeto){
+    teste=objeto;
+    console.log(objeto);
 }
