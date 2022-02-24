@@ -19,12 +19,10 @@ function get(){
         .then(res =>showResponse(res)).catch(function (error) {
 			console.log(error);
 		  });
-    
-    
+          
+          
 }
-setTimeout(function(){
-    window.location.reload(1);
- }, 5000);
+
 get();
 
 function post(){
@@ -36,16 +34,23 @@ function post(){
     blusa.author="tiago";    
     blusa.image= document.querySelector('#post-encomenda').value;
 
-    axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts",blusa).then(res => showResponse(res)).catch(function (error) {
-        alert(error);
-      });
-      
+    axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts",blusa).then(
+        function (res){ alert("Encomenda Confirmada");}
+    ).catch(function (error) {
+        alert("Ops, não conseguimos processar sua encomenda");
+      }).then(res => showResponse(res));
+
+      setTimeout(function(){
+        window.location.reload(1);
+     }, 1000);
 }
 
 
 let teste=[];
 function showResponse(res){
     
+   
+
     let montarBlusas = `
         
         <div class="pedidos">`;
@@ -57,7 +62,7 @@ function showResponse(res){
             <img src="${res.data[i].image}"/>   
              </div>
             <span class="autor"><h3>
-                            <stong>Criador:</strong>
+                            <strong>Criador:</strong>
             
             ${res.data[i].owner}</h3></span> </div>`;
             montarBlusas += ``;
@@ -70,7 +75,10 @@ function showResponse(res){
         montarBlusas;
             
             // style="background:url('${res.data[i].image}');background-size: contain;"
-            // 
+            //
+            setTimeout(function(){
+                window.location.reload(1);
+             }, 15000); 
         
 }
 
