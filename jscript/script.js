@@ -7,15 +7,13 @@ function validarNome() {
     do {
         nome = prompt("Qual o seu nome?");
     } while ((nome == "") || ((/^[a-z][a-z\s]*$/i).test(nome) == false));
-    blusa.owner =nome;
-    blusa.author=nome;
-
+    blusa.owner = nome;
 
 }
 
 function escolherBlusa(id, categoria, item) {
 
-   
+
 
     const itemSelecionado = document.querySelector(`#${id}`);
 
@@ -31,43 +29,46 @@ function escolherBlusa(id, categoria, item) {
 
     itemSelecionado.children[0].classList.add('selecionado');
 
-    
+
 
     if (categoria === 'modelo') {
-         blusa.model = item;
+        blusa.model = item;
 
     }
 
     if (categoria === 'gola') {
-         blusa.neck = item;
+        blusa.neck = item;
 
     }
 
     if (categoria === 'material') {
-         blusa.material = item;
+        blusa.material = item;
 
     }
 
-    if(document.querySelectorAll(".selecionado").length == 3){
+    if (document.querySelectorAll(".selecionado").length == 3) {
         document.getElementById("post-encomenda").focus();
     }
-    
+
 }
 
-function verificarImagem(){
-
+function verificarImagem() {
+    console.log("Eu estou aqui olhando");
+    
     let imagem = document.getElementById("post-encomenda");
     let botao = document.getElementById("botao");
-        if (/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imagem.value) == false) {
+    if (/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imagem.value) == false) {
         alert("Endereço de imagem invalido ou vazio");
         document.querySelector('#post-encomenda').focus();
         return;
     } else {
-       botao.disabled = false; 
-       botao.classList.add("ativar");
-       blusa.image = imagem.value;
+        botao.disabled = false;
+        botao.classList.add("ativar");
+        
+        blusa.image = imagem.value;
+        blusa.author = blusa.owner;
     }
-   
+
 }
 
 
@@ -79,21 +80,23 @@ function get() {
 
 
 }
+
 get();
 
 
-// confirmarPedido();
+
 
 function confirmarPedido() {
 
-    console.log(blusa); 
-
     axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts", blusa)
-    .then(
-         alert("Encomenda Confirmada")
-    ).catch(function (error) {
-        alert("Ops, não conseguimos processar sua encomenda");
-    }).then(res => showResponse(res));
+        .then(function (res) {
+            alert("Encomenda Confirmada");
+            showResponse(res);
+        }
+
+        ).catch(function (error) {
+            alert("Ops, não conseguimos processar sua encomenda");
+        });
 
     setTimeout(function () {
         window.location.reload(1);
@@ -102,16 +105,18 @@ function confirmarPedido() {
 
 
 function showResponse(res) {
-
+   
 
     let montarBlusas = `
         
         <div class="pedidos">`;
 
     for (let i = 0; i < res.data.length; i++) {
+
+
         montarBlusas += `
             <div class="criacao">
-            <div class="blusas" onclick="encomendarBlusa(this)">
+            <div class="blusas" onclick="encomendaBlusaGet(${res.data[i].id})">
             <img src="${res.data[i].image}"/>   
              </div>
             <span class="autor"><h3>
@@ -123,7 +128,6 @@ function showResponse(res) {
 
     }
     montarBlusas += `</div>`;
-    // montarBlusas+=`${JSON.stringify(res.data,null,'\t')}`;
 
     document.querySelector('.text').innerHTML +=
         montarBlusas;
@@ -131,25 +135,60 @@ function showResponse(res) {
 
 }
 
-function encomendarBlusa(objeto) {
-   
-    if (window.confirm("Você deseja encomendar esta blusa?")) {
-        /*
-        Deve fazer uma encomenda com os dados da blusa clicada;
-        */
-      }
+
+function encomendaBlusaGet(id) {
+
+    let blusaEscolhida = {};   
+
+    axios.get("https://mock-api.driven.com.br/api/v4/shirts-api/shirts")
+        .then(function (res) {
+            for (let i = 0; i < res.data.length; i++) {
+                if (res.data[i].id == id) {
+                    blusaEscolhida.model = res.data[i].model;
+                    blusaEscolhida.neck = res.data[i].neck;
+                    blusaEscolhida.material = res.data[i].material;
+                    blusaEscolhida.image = res.data[i].image;
+                    blusaEscolhida.owner = blusa.owner;
+                    blusaEscolhida.author= blusa.owner;
+                    
+                   
+                }
+            }
+            encomendaBlusaPost(blusaEscolhida);
+
+        }).catch(function (error) {
+
+            console.log(error);
+        });
+       
+         
 }
 
 
 
+function encomendaBlusaPost(blusaEncomendada){
 
+ console.log(blusaEncomendada);
 
+    if (window.confirm("Você deseja encomendar esta blusa?")) {
+    
 
-//     if (modelo != "" && gola != "" && material != "") {
-//         document.getElementById('post-encomenda').focus();
-//         document.getElementById("post-encomenda").placeholder ="Insira o link da imagem";
+            axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts", blusaEncomendada)
+            .then( function (res){
+                alert("Encomenda Confirmada");
+                showResponse(res);
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 1000);
+            }
 
-//     } else {
-//         alert("Faltou selecionar um categoria");
-//     }
-// }
+            ).catch(function (error) {
+                alert("Ops, não conseguimos processar sua encomenda");
+                console.error(error);
+            });
+
+        
+    }
+
+}
+

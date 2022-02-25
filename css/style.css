@@ -1,4 +1,4 @@
-body {
+ body {
     font-family: 'Roboto';
     color: #232323;
 }
@@ -15,12 +15,7 @@ h4 {
     font-size: 18px;
 }
 
-.titulos {
-    width: 100%;
-    text-align: left;
-    margin-top: 31.72px;
-    margin-bottom: 8.58px;
-}
+
 
 header {
     width: 100%;
@@ -34,6 +29,26 @@ header {
     align-items: center;
     padding-left: 80.4px;
 }
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+section {
+    width: 398.61px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.titulos {
+    width: 100%;
+    text-align: left;
+    margin-top: 31.72px;
+    margin-bottom: 8.58px;
+}
 
 .text {
     background-color: #F2F2F2;
@@ -44,9 +59,6 @@ header {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
-    /* flex-wrap: wrap; */
-
-
 }
 
 .criacao {
@@ -67,28 +79,9 @@ header {
 .blusas img {
     width: 180px;
     height: 180px;
-    /*
-    background-color: pink;
+}
 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain; 
-*/
-}
-main{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-section {
-    width: 398.61px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
-}
 
 
 .modelo, .gola, .material {
@@ -172,9 +165,8 @@ input#post-encomenda:focus {
 }
 
 .selecionado{
-    border: 2px solid #5A66EF;;
-    /* border-radius: 50%;  */
+    border: 2px solid #5A66EF;
 }
 .ativar{
     background-color: #404EED;
-}
+} 
