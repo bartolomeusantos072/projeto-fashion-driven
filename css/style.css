@@ -1,172 +1,256 @@
  body {
-    font-family: 'Roboto';
-    color: #232323;
-}
+     font-family: 'Roboto';
+     color: #232323;
+ }
 
-h1 {
-    font-size: 24px;
-}
+ h1 {
+     font-size: 24px;
+ }
 
-h3 {
-    font-size: 20px;
-}
+ h3 {
+     font-size: 20px;
+ }
 
-h4 {
-    font-size: 18px;
-}
+ h4 {
+     font-size: 18px;
+ }
 
+ header {
+     width: 100%;
+     height: 89px;
+     left: 0px;
+     top: 0px;
+     background: #404EED;
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
 
+ }
 
-header {
-    width: 100%;
-    height: 89px;
-    left: 0px;
-    top: 0px;
-    background: #404EED;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 80.4px;
-}
-main{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-section {
-    width: 398.61px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-.titulos {
-    width: 100%;
-    text-align: left;
-    margin-top: 31.72px;
-    margin-bottom: 8.58px;
-}
-
-.text {
-    background-color: #F2F2F2;
-    height: 342px;
-}
-
-.pedidos {
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
-}
-
-.criacao {
-    height: 236.5px;
-    width: 201.7px;
-    border-radius: 10px;
-    margin: 8.215px;
-    padding: 10.85px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-}
-.blusas{
-    cursor:pointer;
-}
-.blusas img {
-    width: 180px;
-    height: 180px;
-}
+ main {
+     width: 100%;
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
 
 
+ }
+
+ section {
+
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+
+ }
+
+ .mobile {
+     width: 100%;
+ }
+
+ .desktop {
+     display: none;
+ }
 
 
-.modelo, .gola, .material {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
+ .blusa {
+     max-width: 400.95px;
+     min-width: 365px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     box-sizing: border-box;
+     margin-top: 38.32px;
+     margin-bottom: 38.32px;
 
-figure {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor:pointer;
-}
+ }
 
-figure div {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: #F2F2F2;
-    border: 0.5px solid #C4C4C4;
+ .titulos {
+     width: 100%;
+     text-align: left;
+     margin-bottom: 8.58px;
+ }
 
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+ .modelo, .gola, .material {
+     width: 100%;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 31.12px;
 
-figure img {
-    width: 80%;
-    height: 80%;
-}
+ }
 
-figcaption {
-    margin: 8.3px;
-}
+ figure {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+ }
+
+ figure div {
+     width: 100px;
+     height: 100px;
+     border-radius: 50%;
+     background: #F2F2F2;
+     border: 0.5px solid #C4C4C4;
+
+     box-sizing: border-box;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ figure img {
+     width: 80%;
+     height: 80%;
+ }
+
+ figcaption {
+     margin: 8.3px;
+ }
 
 
-.autor {
-    margin: 7.94px 0;
-}
+ footer {
+     width: 100vw;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color: #F2F2F2;
+ }
 
-.imagem-referencia {
-    width: 398.61px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+ .lista {
+     width: 90vw;
+     margin-right: 0;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     max-height: 342px;
 
-input, button {
-    width: 398.61px;
-    height: 40px;
-    border-radius: 10px;
-    border: 0;
-    
-    margin: 11.58px;
-}
+ }
 
-input {
-    background-color: #F2F2F2;
-    font-size: 14px;
-    text-align: left;
-    text-indent:2em;
-}
+ .pedidos {
+     width: 100%;
+     /* margin-right: -21px; */
+     display: flex;
+     flex-direction: row;
+     overflow-x: scroll;
+     box-sizing: border-box;
 
-button {
-    background-color: #C4C4C4;
-    font-size: 20px;
-    color: #FCFCFC;
-    text-align: center;
+ }
 
-}
-input#post-encomenda:focus {
-    outline: none;
-    border: 2px solid #5A66EF;
-    box-shadow: 0 0 10px #5A66EF;
-}
+ .criacao {
+     height: 236.5px;
+     width: 201.7px;
+     border-radius: 10px;
+     margin: 8.215px;
+     padding: 10.85px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background-color: #fff;
+ }
 
-.selecionado{
-    border: 2px solid #5A66EF;
-}
-.ativar{
-    background-color: #404EED;
-} 
+ .blusas {
+     cursor: pointer;
+ }
+
+ .blusas img {
+     width: 180px;
+     height: 180px;
+ }
+
+
+
+
+ .autor {
+     margin: 7.94px 0;
+ }
+
+ .imagem-referencia {
+     width: 100%;
+     /* max-width: 398.61px; */
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .titulo {
+     width: 98%;
+ }
+
+ input, button {
+     width: 100%;
+     /* width: 398.61px; */
+     height: 40px;
+     border-radius: 10px;
+     border: 0;
+
+     margin: 11.58px;
+ }
+
+ input {
+     background-color: #F2F2F2;
+     font-size: 14px;
+     text-align: left;
+     text-indent: 2em;
+ }
+
+ button {
+     background-color: #C4C4C4;
+     font-size: 20px;
+     color: #FCFCFC;
+     text-align: center;
+
+ }
+
+ input#post-encomenda:focus {
+     outline: none;
+     border: 2px solid #5A66EF;
+     box-shadow: 0 0 10px #5A66EF;
+ }
+
+ .selecionado {
+     border: 2px solid #5A66EF;
+ }
+
+ .ativar {
+     background-color: #404EED;
+ }
+
+
+ @media (min-width:801px) {
+     .mobile {
+         width: 50%;
+     }
+
+     .desktop {
+         width: 50%;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         min-height: 794px;
+         background-color: #404EED;
+
+     }
+     .cabecalho{
+        width: 85%;
+        display: flex;
+        justify-content: flex-start;
+     }
+     .desktop img {
+         width: 100%;
+     }
+
+     /* tablet, landscape iPad, lo-res laptops ands desktops */
+ }
+

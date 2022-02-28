@@ -18,13 +18,18 @@
 
 <body>
     <header>
-        <img src="imagem/Logo.png" alt="Minha Figura">
+        <div class="cabecalho">
+            <img src="imagem/Logo.png" alt="Minha Figura">
+        </div>
+        
     </header>
     <main>
-        <section>
-            <div class="blusa personalizada">
+        <section class="mobile">
+            <div class="blusa">
 
-                <div class="titulos"><h4>Escolha modelo</h4></div>
+                <div class="titulos">
+                    <h4>Escolha modelo</h4>
+                </div>
                 <div class="modelo">
 
                     <figure id="tshirt" onclick="escolherBlusa(id,'modelo','t-shirt')">
@@ -50,66 +55,79 @@
 
                 </div>
 
-                <div class="titulos"><h4>Escolha a gola</h4></div>
+                <div class="titulos">
+                    <h4>Escolha a gola</h4>
+                </div>
                 <div class="gola">
                     <figure id="gola-v" onclick="escolherBlusa(id,'gola','v-neck')">
                         <div>
-                            <img src="imagem/tshirt.png" alt="T-shirt">
+                            <img src="imagem/GolaV.png" alt="T-shirt">
                         </div>
                         <figcaption>Gola V</figcaption>
                     </figure>
 
                     <figure id="gola-redonda" onclick="escolherBlusa(id,'gola','round')">
                         <div>
-                            <img src="imagem/Camiseta.png" alt="T-shirt">
+                            <img src="imagem/GolaRedonda.png" alt="T-shirt">
                         </div>
                         <figcaption>Gola Redonda</figcaption>
                     </figure>
 
                     <figure id="gola-polo" onclick="escolherBlusa(id,'gola','polo')">
                         <div>
-                            <img src="imagem/Mangalonga.png" alt="T-shirt">
+                            <img src="imagem/GolaPolo.png" alt="T-shirt">
                         </div>
                         <figcaption>Gola Polo</figcaption>
                     </figure>
                 </div>
 
-                <div class="titulos"><h4>Escolha o tecido</h4></div>
+                <div class="titulos">
+                    <h4>Escolha o tecido</h4>
+                </div>
                 <div class="material">
                     <figure id="seda" onclick="escolherBlusa(id,'material','silk')">
                         <div>
-                            <img src="imagem/tshirt.png" alt="T-shirt">
+                            <img src="imagem/Seda.png" alt="T-shirt">
                         </div>
                         <figcaption>Seda</figcaption>
                     </figure>
                     <figure id="algodao" onclick="escolherBlusa(id,'material','cotton')">
                         <div>
-                            <img src="imagem/Camiseta.png" alt="T-shirt">
+                            <img src="imagem/Algodão.png" alt="T-shirt">
                         </div>
                         <figcaption>Algodão</figcaption>
                     </figure>
                     <figure id="poliester" onclick="escolherBlusa(id,'material','polyester')">
                         <div>
-                            <img src="imagem/Mangalonga.png" alt="T-shirt">
+                            <img src="imagem/Poliester.png" alt="T-shirt">
                         </div>
                         <figcaption>Poliéster</figcaption>
                     </figure>
                 </div>
 
                 <div class="imagem-referencia">
-                    <div class="titulos"><h4>Imagem de referência</h4></div>
+                    <div class="titulo">
+                        <h4>Imagem de referência</h4>
+                    </div>
 
-                    <input id="post-encomenda" type="text" placeholder="Insira o link da imagem" onkeyup="verificarImagem();"/>
+                    <input id="post-encomenda" type="text" placeholder="Insira o link da imagem"
+                        onkeyup="verificarImagem();" />
                     <button id="botao" onclick="confirmarPedido()">Confirmar pedido</button>
 
                 </div>
             </div>
         </section>
-        <section>
+        <section class="desktop">
+            
+            <img src="imagem/ilustração.png">
         </section>
     </main>
-    <footer class="text">
-        <h1>Ultimos pedidos</h1>
+    <footer>
+        <div class="lista">
+            <div class="titulo"> 
+                <h1>Ultimos pedidos</h1>
+            </div>
+        </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="jscript/script.js"></script>

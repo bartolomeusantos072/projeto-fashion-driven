@@ -14,7 +14,6 @@ function validarNome() {
 function escolherBlusa(id, categoria, item) {
 
 
-
     const itemSelecionado = document.querySelector(`#${id}`);
 
     const categoriaDoItemSelecionado = document.querySelector(`.${categoria}`);
@@ -54,7 +53,7 @@ function escolherBlusa(id, categoria, item) {
 
 function verificarImagem() {
     console.log("Eu estou aqui olhando");
-    
+
     let imagem = document.getElementById("post-encomenda");
     let botao = document.getElementById("botao");
     if (/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imagem.value) == false) {
@@ -129,8 +128,7 @@ function showResponse(res) {
     }
     montarBlusas += `</div>`;
 
-    document.querySelector('.text').innerHTML +=
-        montarBlusas;
+    document.querySelector('.lista').innerHTML +=montarBlusas;
 
 
 }
